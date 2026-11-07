@@ -1,0 +1,20 @@
+import {createServer} from 'node:http';import {DatabaseSync} from 'node:sqlite';import {readFile,writeFile,mkdir} from 'node:fs/promises';import {resolve,extname,join} from 'node:path';import {fileURLToPath} from 'node:url';import {randomBytes} from 'node:crypto';
+import worker,{passwordHash} from '../src/worker.js';import {seed} from '../public/domain.js';
+const root=fileURLToPath(new URL('../',import.meta.url));
+export async function start({port=4182,host='127.0.0.1',dataDir=join(root,'.local'),password}={}){
+ await mkdir(dataDir,{recursive:true});const configPath=join(dataDir,'acceso-local.json');let config;
+ try{config=JSON.parse(await readFile(configPath,'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;const pass=password||randomBytes(12).toString('base64url'),salt=randomBytes(20).toString('hex');config={ADMIN_SALT:salt,ADMIN_HASH:await passwordHash(pass,salt),password:pass};await writeFile(configPath,JSON.stringify(config,null,2),{flag:'wx'});}
+ const db=new DatabaseSync(join(dataDir,'restaurante.sqlite'));db.exec('PRAGMA journal_mode=WAL;');db.exec(await readFile(join(root,'cloudflare/schema.sql'),'utf8'));
+ db.prepare('INSERT OR IGNORE INTO restaurant_state(id,revision,payload) VALUES(1,1,?)').run(JSON.stringify(seed()));
+ const DB={prepare(sql){return {bind(...args){return {async first(){return db.prepare(sql).get(...args)||null;},async run(){const r=db.prepare(sql).run(...args.map(a=>a instanceof ArrayBuffer?new Uint8Array(a):a));return {meta:{changes:Number(r.changes)}};}};},async first(){return db.prepare(sql).get()||null;},async run(){const r=db.prepare(sql).run();return {meta:{changes:Number(r.changes)}};}};}};
+ const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.webmanifest':'application/manifest+json'};
+ const ASSETS={async fetch(req){let path=decodeURIComponent(new URL(req.url).pathname);if(path==='/'||path==='/admin'||path==='/admin/')path='/index.html';if(path.split('/').some(s=>s.startsWith('.')||s.includes('\\')))return new Response('No encontrado',{status:404});const file=resolve(root,'public','.'+path);if(!file.startsWith(resolve(root,'public')+'/')&&!file.startsWith(resolve(root,'public')+'\\'))return new Response('No encontrado',{status:404});try{const bytes=await readFile(file);return new Response(req.method==='HEAD'?null:bytes,{headers:{'Content-Type':types[extname(file)]||'application/octet-stream','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"}});}catch{return new Response('No encontrado',{status:404});}}};
+ const server=createServer(async(req,res)=>{try{
+  const headers=new Headers();for(const [k,v] of Object.entries(req.headers))if(v)headers.set(k,Array.isArray(v)?v.join(','):v);headers.set('CF-Connecting-IP',req.socket.remoteAddress||'local');
+  const url=`http://${req.headers.host}${req.url}`;const init={method:req.method,headers};if(!['GET','HEAD'].includes(req.method)){init.body=req;init.duplex='half';}
+  const result=await worker.fetch(new Request(url,init),{DB,ASSETS,...config});res.writeHead(result.status,Object.fromEntries(result.headers));res.end(Buffer.from(await result.arrayBuffer()));
+ }catch{res.writeHead(500);res.end('Error local.');}});
+ await new Promise((ok,no)=>{server.once('error',no);server.listen(port,host,ok);});const actual=server.address().port;
+ return {url:`http://127.0.0.1:${actual}`,configPath,async close(){await new Promise((ok,no)=>server.close(e=>e?no(e):ok()));db.close();}};
+}
+if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){const app=await start({port:Number(process.env.PORT||4182)});console.log(`Carta: ${app.url}\nAdministrador: ${app.url}/admin\nAcceso privado local: ${app.configPath}`);for(const signal of ['SIGINT','SIGTERM'])process.on(signal,async()=>{await app.close();process.exit(0);});}

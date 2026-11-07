@@ -1,0 +1,11 @@
+node_modules/
+.local/
+.test-output/
+test-results/
+playwright-report/
+dist/
+.wrangler/
+.env*
+.dev.vars*
+!*.example
+backups-private/

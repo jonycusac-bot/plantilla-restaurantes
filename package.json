@@ -1,0 +1,1 @@
+{"name":"plantilla-restaurantes","version":"1.0.0","private":true,"type":"module","engines":{"node":">=24"},"scripts":{"dev":"node scripts/local.mjs","test":"node --test tests/*.test.mjs","check":"node --check public/app.js && node --check src/worker.js && node --check scripts/local.mjs","build":"node scripts/build.mjs"},"devDependencies":{"@playwright/test":"1.65.0"}}
