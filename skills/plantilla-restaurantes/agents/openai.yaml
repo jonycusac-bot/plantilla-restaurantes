@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plantilla de restaurantes"
+  short_description: "Crear restaurantes con carta, bebidas y eventos"
+  default_prompt: "Usa $plantilla-restaurantes para crear un restaurante independiente con esta plantilla."

@@ -14,11 +14,11 @@ test('Guardar aplica diferencias, conserva cambios independientes y bloquea conf
 import assert from 'node:assert/strict';
 import {existsSync} from 'node:fs';
 const path=new URL('../public/domain.js',import.meta.url);
-test('plantilla independiente: cuatro secciones, cuatro platos por sección y ninguna foto o marca de INCH',async()=>{
+test('plantilla independiente: cuatro secciones de comida y Bebidas vacía y ninguna foto o marca de INCH',async()=>{
  assert.ok(existsSync(path),'Falta el catálogo genérico');
  const {seed}=await import(path); const data=seed();
- assert.equal(data.categories.length,4);assert.equal(data.dishes.length,16);
- for(const c of data.categories)assert.equal(data.dishes.filter(d=>d.categoryId===c.id).length,4);
+ assert.equal(data.categories.length,5);assert.equal(data.dishes.length,16);
+ for(const c of data.categories.filter(c=>c.kind!=='drinks'))assert.equal(data.dishes.filter(d=>d.categoryId===c.id).length,4);
  assert.equal(new Set(data.dishes.map(d=>d.id)).size,16);
  assert.ok(data.dishes.every(d=>!d.imageSrc&&d.allergens.length===0));
  assert.doesNotMatch(JSON.stringify(data),/inch|api.key|cloudflare/i);

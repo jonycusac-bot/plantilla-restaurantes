@@ -1,0 +1,284 @@
+{
+  "version": "2026-11-13",
+  "source": "Plantilla Restaurantes, instantánea limpia con bebidas y eventos",
+  "adaptaciones": [
+    "Documentación portátil sin historial ni accesos locales",
+    "Generador incluye PROTOCOLO.md",
+    "Ejemplo de clave-nube genérico",
+    "Pruebas de identidad comparan el perfil generado en lugar de un nombre fijo"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "47382d55824bd4a34bbec79405c433ebd8b38c899e4f0bd41e582e13017d81ce"
+    },
+    {
+      "path": "cloudflare/events-socials.sql",
+      "sha256": "de3c3fe40791dd2b611789086883b6a582cb11a05a5ce055ef598ec361bd3043"
+    },
+    {
+      "path": "cloudflare/schema.sql",
+      "sha256": "21665a21e5ef7274ef3ffd84abb2f02473f1c56901057a279e1671dbb58646f3"
+    },
+    {
+      "path": "GUIA-NUEVO-RESTAURANTE.md",
+      "sha256": "4182a62a71cacfba065aab16a1469f4b8e065ecbc08d368e84b8a5fad98152a8"
+    },
+    {
+      "path": "INICIAR.cmd",
+      "sha256": "d628c1aa627afda28195256fb328ef78782ff1300e9ef835fdc6112193ce741b"
+    },
+    {
+      "path": "NUEVO-RESTAURANTE.cmd",
+      "sha256": "1ffdf0c4b9222a4c73632d528f185e236861a951e5e2ed3b8ee3107d2709b402"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "4c0d0d2b675b5c5ced5ce942893d77405c52b1ca30adacacc236d798ceca3218"
+    },
+    {
+      "path": "package.json",
+      "sha256": "027ada18d8958aea81aa7580239193e48b9a552d04c358b869bb7119d756466b"
+    },
+    {
+      "path": "PROTOCOLO.md",
+      "sha256": "8610a8a4088e17ff2569a98c72abe50920599456bd5cde2052a4f3cd04028b40"
+    },
+    {
+      "path": "public/admin.webmanifest",
+      "sha256": "bd2fe71887c4e958ff8ed9e0360a435c08b7c899df98bafe4016f5931db092f6"
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "7e2924a8979a4406e9640a09fd75b4e5746876f555b294f2e838d87b28a71d8e"
+    },
+    {
+      "path": "public/assets/admin-180.png",
+      "sha256": "8a5f0589fdb01a8d684e457054128e9e8540218f0596506d1c1c8ae73b2fdcfc"
+    },
+    {
+      "path": "public/assets/admin-192.png",
+      "sha256": "dcd1f386bf41e070920b225cf656e7cabb8f138b10905710790a438db134cd28"
+    },
+    {
+      "path": "public/assets/admin-32.png",
+      "sha256": "20982a1d0da4233a6abc0276ff6ce9242c9358b4da9b0b044762788490dea967"
+    },
+    {
+      "path": "public/assets/admin-512.png",
+      "sha256": "1a0c6c15d1481f866a1d5203155ef9500e4023038f61b9a498239c7b6719376b"
+    },
+    {
+      "path": "public/assets/allergen-celery.webp",
+      "sha256": "1ca2da442cd7215b0d5dd7e710450c631a75438e68b155d7251e0addc29db197"
+    },
+    {
+      "path": "public/assets/allergen-crustaceans.webp",
+      "sha256": "540d1c8960c7a81226eacdd3e72685596b3e6f708ae83214da355eb2b1b3c3b6"
+    },
+    {
+      "path": "public/assets/allergen-eggs.webp",
+      "sha256": "844b38ef56e12ab22a2ef9fab13fd5d10ccd51826803e64d1490d492099610e1"
+    },
+    {
+      "path": "public/assets/allergen-fish.webp",
+      "sha256": "63fe8d97d7ac6a08a9142e2c2ecc0e064c467e53ab3c241aa6a93ef73d5adfa2"
+    },
+    {
+      "path": "public/assets/allergen-gluten.webp",
+      "sha256": "1f0e496c6f326da3bff67a1236448137c597edefd38d9d8cd22299dadd784567"
+    },
+    {
+      "path": "public/assets/allergen-lupins.webp",
+      "sha256": "65e007edeede6f540915f9380c3813c5b7904b3921178921be4a4db75c0fb5f0"
+    },
+    {
+      "path": "public/assets/allergen-milk.webp",
+      "sha256": "a5ceb3695fac9497c33ccb8a91820bacc50e6fce6f15d2ff17d1b5878efe59a2"
+    },
+    {
+      "path": "public/assets/allergen-molluscs.webp",
+      "sha256": "8d84606e928f81f6bd89f7519e60cd7df37652a84878e7460753f5dc1776c4b1"
+    },
+    {
+      "path": "public/assets/allergen-mustard.webp",
+      "sha256": "ad7479e5ae99342ccd53e559bc26f2891f32408bae026e5c72aca0d060cbb714"
+    },
+    {
+      "path": "public/assets/allergen-nuts.webp",
+      "sha256": "b8c9cb10bd82869866c3e1eac9db2d35f037d422ce76d68d95ddaf493c8b25cd"
+    },
+    {
+      "path": "public/assets/allergen-peanuts.webp",
+      "sha256": "ddd84ded262941bac09780a8802765580776bb8771a27f5cdbaaad7e7bad9d63"
+    },
+    {
+      "path": "public/assets/allergen-sesame.webp",
+      "sha256": "f978d9754d01b532e0f6ac383a0e3be0de711d98a85d9dce6d3ebff30c751553"
+    },
+    {
+      "path": "public/assets/allergen-soya.webp",
+      "sha256": "6eba840626ec2b769609aa593db54de20fb862ad53d07c6c66fa6e517d4a255a"
+    },
+    {
+      "path": "public/assets/allergen-sulphites.webp",
+      "sha256": "24cd9df82c79f6a109fd80f9725dc3a9fe018e6c0387d513cb65d2fa0dd2beb9"
+    },
+    {
+      "path": "public/assets/carta-180.png",
+      "sha256": "49ee14f1423f8c078dc386ff95624e86720df1acfb1846e7cd964e9600f41417"
+    },
+    {
+      "path": "public/assets/carta-192.png",
+      "sha256": "d92bba6f2c50bcfdc3c173d3c31c842bab4c05504d2a460da845ba7056e228e2"
+    },
+    {
+      "path": "public/assets/carta-32.png",
+      "sha256": "43bc7aa86952fc3c4ebabe4f81141535a741669d5b0b332e8dfc8458ca3223f1"
+    },
+    {
+      "path": "public/assets/carta-512.png",
+      "sha256": "a7569004d2064135f234f8fff35c466130d6c61ad309ef54ce6ab40b2485d644"
+    },
+    {
+      "path": "public/assets/flag-de.webp",
+      "sha256": "05ebc387dcb59d5a3d9d2c50329a94ca4e2049538f405cbbe8974d054c8765cc"
+    },
+    {
+      "path": "public/assets/flag-es.webp",
+      "sha256": "b18274fcfbb1eaa2870aeb741db01f76d5116f2f14712ee7b5f02f0c65709800"
+    },
+    {
+      "path": "public/assets/flag-gb.webp",
+      "sha256": "53355201cbd76cea905898aef0a75be74e1770f7431ac1c34938e49eca04554d"
+    },
+    {
+      "path": "public/carta.webmanifest",
+      "sha256": "19949cd69e880d8649b4f2082208ce0ec6360b5e7c5eb8b59cec355d2c338c81"
+    },
+    {
+      "path": "public/domain.js",
+      "sha256": "45bff95ca6351d4949ee225be3fa3afe7a7614eea66a37a1a2d836644c6da601"
+    },
+    {
+      "path": "public/events-ui.js",
+      "sha256": "ff4169875941388bc8f8ead4662cf8abb198de892bff7bd0cd9fe238db7a7b7d"
+    },
+    {
+      "path": "public/events.js",
+      "sha256": "12c043c4438251f8afb3195c2136c063b71912b6ebd353facdadec92c6ac86cc"
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "340a849bb7ba3fc7003468dd2469fa106b1a7ecc1821d704332c493c69635de4"
+    },
+    {
+      "path": "public/style.css",
+      "sha256": "6581e6f018a65482b560801ad31fe1474654ac3453a18138c688ec694d09e9a1"
+    },
+    {
+      "path": "public/template.css",
+      "sha256": "074a0bf266fc9519f6552414d9fcc3e9e39c472787e7ae2d185c6a9b90d5b434"
+    },
+    {
+      "path": "public/_headers",
+      "sha256": "be61c412e0d0e8fa676a2aa829659d5180ba366159c1a9c7aa1f6bdbdfefd047"
+    },
+    {
+      "path": "README.md",
+      "sha256": "30a87f0c1f1184bc17d8af0d1ea71ddec31398913b35a7d99529fc16fe2c0949"
+    },
+    {
+      "path": "restaurante.config.example.json",
+      "sha256": "93b2c5bce8d9eb2ca637ec49cccc7a056f16fcff2a6abe7ebece9a7812a52ff3"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "74660dcef7c4f6d758c1310a2aaa9f75eaccbe51fb8fa47454c1c34e1c697707"
+    },
+    {
+      "path": "scripts/clave-nube.mjs",
+      "sha256": "f96e03589b162b9300354a88def96724daa2b287e176c0130aa19792ee963153"
+    },
+    {
+      "path": "scripts/comprobar-nube.mjs",
+      "sha256": "7bc4fc7c1988c90ea8823a1c7ee559eae550360a69e29d9150e76b75ddc9226a"
+    },
+    {
+      "path": "scripts/demo.mjs",
+      "sha256": "a827b47b03dba0bd135c6d0cd44d48cc24a216ca0f535e2ec4d0f690c773e825"
+    },
+    {
+      "path": "scripts/exportar.mjs",
+      "sha256": "a05455dd283fe228e26c4974a09c6eabfbcde094c8d1e84b24b0556212fba11d"
+    },
+    {
+      "path": "scripts/local.mjs",
+      "sha256": "8653e0c00c191ba5c5550b33ef10a23ff654b652cc20e4cf700c4bda5d6764d8"
+    },
+    {
+      "path": "scripts/nuevo-restaurante.mjs",
+      "sha256": "22ed684bd12dbb5ca1380374d4475d7ce6b0745d7c95964b2625a37de2f7c407"
+    },
+    {
+      "path": "scripts/perfil.mjs",
+      "sha256": "9989083f9c03f033bf156fbecdcb83c9d037c5e82ae82e995d46200fb1099cd5"
+    },
+    {
+      "path": "scripts/secretos.mjs",
+      "sha256": "dcb0776fa29c7f82540a8e3d721bd38c3746284d70a25332b73b82ebbfe205f8"
+    },
+    {
+      "path": "scripts/subir-fotos.mjs",
+      "sha256": "fd9d87bf7686710842f1c75cd810c7ac86a81270c22c1e832c04e5eccb0af4ef"
+    },
+    {
+      "path": "src/worker.js",
+      "sha256": "2573253d02de59e603f8fda23997d7b7507282acb0572e744dcec3af07ad89cb"
+    },
+    {
+      "path": "tests/api.test.mjs",
+      "sha256": "c0de1a5ca0bcace6a79566a455442c16837ca4b2f71a0581c0da5fc07ed9644d"
+    },
+    {
+      "path": "tests/bebidas.browser.spec.mjs",
+      "sha256": "cd5fe8c694ba111b99c418ff3eb2568aa9689610028ec8f896f1c2110045eb78"
+    },
+    {
+      "path": "tests/bebidas.test.mjs",
+      "sha256": "f7cd6cb2e603e573f66f2387a306f46755ebffaa9852b346cc4f9d8f56f8a2ec"
+    },
+    {
+      "path": "tests/browser.spec.mjs",
+      "sha256": "0453bc6eb83010404390e2fffde6d10c7e243022c08854baed3e246b882776b0"
+    },
+    {
+      "path": "tests/build.test.mjs",
+      "sha256": "525a75d95f3c1069f7df5452bf8e97b8613dc83f3b764279d76da3b215047ef6"
+    },
+    {
+      "path": "tests/domain.test.mjs",
+      "sha256": "718517160a0ebb8556bc9a3b9017461c6efebbb5440e1e2d0c47a55ce038122e"
+    },
+    {
+      "path": "tests/events.test.mjs",
+      "sha256": "d2e251ab2d18bd6494f8cee281000452188aa5056d972b67330a5e30808dcdab"
+    },
+    {
+      "path": "tests/exportar.test.mjs",
+      "sha256": "ef9a04259b843df72545129e925c484110ce439edab1a20fde2faf2613921284"
+    },
+    {
+      "path": "tests/generador.test.mjs",
+      "sha256": "612f6e2904a9d34abb0be1b842d89e2ef1c4ba51e41c239e375c7694e32c9335"
+    },
+    {
+      "path": "tests/iconos.test.mjs",
+      "sha256": "afb7930a23b006dcbcb2b6901014b6a4a9391f86e8a900461b3ad93ec84b6620"
+    },
+    {
+      "path": "wrangler.example.jsonc",
+      "sha256": "e7e47fd34a1aad8faff6d67ba2a51a6c872824d2b6a05c874c03c851fcbf2816"
+    }
+  ]
+}

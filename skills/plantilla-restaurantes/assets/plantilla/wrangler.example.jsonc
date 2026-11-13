@@ -1,0 +1,7 @@
+{
+  // Ejemplo deliberadamente inactivo. Crear recursos NUEVOS solo con autorización.
+  "name": "nombre-unico-del-restaurante",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-11-07",
+  "d1_databases": [{"binding":"DB","database_name":"base-nueva-del-restaurante","database_id":"REEMPLAZAR_POR_ID_NUEVO"}]
+}

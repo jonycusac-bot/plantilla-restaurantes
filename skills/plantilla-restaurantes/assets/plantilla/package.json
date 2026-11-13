@@ -1,0 +1,26 @@
+{
+  "name": "plantilla-restaurantes",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node scripts/local.mjs",
+    "demo": "node scripts/demo.mjs",
+    "acceso": "node scripts/local.mjs --acceso",
+    "nuevo": "node scripts/nuevo-restaurante.mjs",
+    "exportar": "node scripts/exportar.mjs",
+    "fotos": "node scripts/subir-fotos.mjs",
+    "secretos": "node scripts/secretos.mjs",
+    "clave-nube": "node scripts/clave-nube.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "comprobar": "node scripts/comprobar-nube.mjs",
+    "check": "node --check scripts/comprobar-nube.mjs && node --check public/app.js && node --check src/worker.js && node --check scripts/local.mjs && node --check scripts/perfil.mjs && node --check scripts/nuevo-restaurante.mjs && node --check scripts/demo.mjs && node --check scripts/exportar.mjs && node --check scripts/subir-fotos.mjs && node --check scripts/secretos.mjs && node --check scripts/clave-nube.mjs && node --check scripts/build.mjs && node --check public/events.js && node --check public/events-ui.js",
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0"
+  }
+}
